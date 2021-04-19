@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,57 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Meme generator</title>
 </head>
-<body>
-    
+
+<body onload="init()">
+    <div class="page-container">
+
+        <section class="page-header">
+
+            <div class="logo">Memegen</div>
+            <div class="nav-bar">
+                <a link="#">Galary</a>
+                <a link="#">About</a>
+            </div>
+
+        </section>
+
+        <section class="gallery-container">
+
+            <div class="gallery-menu">
+                <input type="text" placeholder="Search" >
+
+            </div>
+
+            <div class="gallery-images" >
+                <!-- <img src="meme-imgs/10.jpg"> -->
+            </div>
+
+        </section>
+
+        <section class="modal-content">
+
+            <div class="canvas-container">
+                <canvas id="my-canvas" width="475px" height="450px"> your browser dont support canvas </canvas>
+            </div>
+
+            <div class="canvas-options" width="475px" height="450px">
+                <input>cant get fired</input>
+                <div class="clear-btns">clear</div>
+                <div class="impact">impact</div>
+                <div class="share-btns">share - download</div>
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+    </div>
+    <script src="js/meme-service.js"></script>
     <script src="js/controller.js"></script>
 </body>
+
 </html>

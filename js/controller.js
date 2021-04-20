@@ -1,7 +1,8 @@
 'use strict';
 
-var gCanvas;
-var gCtx;
+let gCanvas;
+let gCtx;
+let gCurrLine= 0;
 
 
 
@@ -20,8 +21,41 @@ function renderImages() {
     document.querySelector(".gallery-images").innerHTML = htmlImgs;
 }
 
+function getCurrTxt(line) {
+const meme = getgMeme();
+    // let currLine = meme.lines.filter(line=> {
+    //     return (line.currLine)
+          
+    // })
+    return meme.lines[line].txt
+}
+
+function onSwitchLines() {
+    const meme = getgMeme();
+    (gCurrLine===meme.lines.length-1)? gCurrLine = 0 : gCurrLine++ ;
+    document.querySelector('[data-name="input-line"]').value =  getCurrTxt(gCurrLine)
+}
+
+function onChangeHeight(idx=0,sign) {
+    const meme = getgMeme();
+    meme.lines[idx].y += sign;
+    clearCanvas();
+    drawText();
+}
+
+function onChangeTxtSize(idx=0,sign) {
+    const meme = getgMeme();
+    meme.lines[idx].size += sign;
+    clearCanvas();
+    drawText();
+}
+
 function onInputText(value) {   
-    setTextinput(value)
+    setTextinput(value,gCurrLine)
+}
+
+function getCurrLine() {
+    return gCurrLine;
 }
 
 function setCanvImg() {
@@ -37,6 +71,7 @@ function clearCanvas() {
 
 function onClear() {
     document.querySelector('[data-name="first-line"]').value = '';
+    document.querySelector('[data-name="second-line"]').value = '';
     clearCanvas();
 }
 

@@ -74,6 +74,6 @@ canvas{
     cursor: pointer;
 }
 
-.btns {
+.btns , button {
     cursor:pointer;
 }

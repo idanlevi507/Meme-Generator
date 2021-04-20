@@ -29,9 +29,18 @@
             </div>
 
             <div class="canvas-options" width="475px" height="450px">
-                <input data-name="first-line" value="i never eat falafel" oninput="onInputText(value)"></input>
-                <div class="clear-btn btns" onclick="onClear()">clear</div>
-                <div class="impact btns">impact</div>
+                <input data-name="input-line" value="I never eat Falafel" oninput="onInputText(value)"></input>
+                <!-- <input data-name="second-line" value="lflfkfskvnsklfs  fslkfs" oninput="onInputText(value,1)"></input> -->
+                <div class="clear-btn btns" >
+                   <button onclick="onClear()">🗑</button>
+                   <button onclick="onSwitchLines()">⇅</button>
+                </div>
+
+                <div class="impact btns">
+                    <button onclick="onChangeTxtSize(0,5)">A+</button><button onclick="onChangeTxtSize(0,-5)">A-</button>
+                    <button onclick="onChangeHeight(0,5)">↓</button><button onclick="onChangeHeight(0,-5)">↑</button>
+                </div
+                >
                 <div class="share-btns btns">share - download</div>
 
 

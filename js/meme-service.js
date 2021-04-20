@@ -7,21 +7,31 @@ let gMeme = {
     lines: [
         {
             txt: 'I never eat Falafel',
-            size: 20,
+            size: 40,
             align: 'left',
-            color: 'red',
+            color: 'blue',
             family: 'IMPACT',
             x:50,
             y:50,
+        },
+        {
+            txt: 'lflfkfskvnsklfs  fslkfs',
+            size: 40,
+            align: 'left',
+            color: 'blue',
+            family: 'IMPACT',
+            x:50,
+            y:350,
         }
     ]
 }
 
-function setTextinput(value) {
+function setTextinput(value,lineNum) {
     clearCanvas();
-    gMeme.lines[0].txt = value;
-    console.log(gMeme);
-    onImgClick(gMeme.selectedImgId);
+    gMeme.lines[lineNum].txt = value;
+    gMeme.lines
+    gMeme.lines[lineNum].currLine = true;
+    drawText();
 }
 
 function drawText() {
@@ -29,7 +39,7 @@ function drawText() {
         gCtx.lineWidth = 3;
         gCtx.strokeStyle = 'white';
         gCtx.fillStyle = line.color;
-        gCtx.font = '40px lato-reg';
+        gCtx.font = `${line.size}px ${line.family}`;
         gCtx.textAlign = line.align;
         gCtx.fillText(line.txt,line.x,line.y);
     })
@@ -42,7 +52,6 @@ function getCurrMeme() {
 
 function setSelectedImg(id) {
     gMeme.selectedImgId = id
-    console.log(gMeme, id);
 }
 
 function loadImages() {

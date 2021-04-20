@@ -18,7 +18,8 @@ let gMeme = {
 }
 
 function setTextinput(value) {
-    gMeme.lines.txt = value;
+    clearCanvas();
+    gMeme.lines[0].txt = value;
     console.log(gMeme);
     onImgClick(gMeme.selectedImgId);
 }
@@ -51,6 +52,10 @@ function loadImages() {
         imgs.push(img)
     }
     return imgs
+}
+
+function getgMeme() {
+    return gMeme
 }
 
 function getgImgs() {

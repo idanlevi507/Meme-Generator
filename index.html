@@ -16,21 +16,8 @@
 
             <div class="logo">Memegen</div>
             <div class="nav-bar">
-                <a onclick="onGallery()">Gallery</a>
-                <a link="#">About</a>
-            </div>
-
-        </section>
-
-        <section class="gallery-container">
-
-            <div class="gallery-menu">
-                <input type="text" placeholder="Search" >
-
-            </div>
-
-            <div class="gallery-images" >
-               
+                <a class="btns" onclick="onGallery()">Gallery</a>
+                <a class="btns" link="#">About</a>
             </div>
 
         </section>
@@ -43,10 +30,23 @@
 
             <div class="canvas-options" width="475px" height="450px">
                 <input data-name="first-line" value="i never eat falafel" oninput="onInputText(value)"></input>
-                <div class="clear-btns">clear</div>
-                <div class="impact">impact</div>
-                <div class="share-btns">share - download</div>
+                <div class="clear-btn btns" onclick="onClear()">clear</div>
+                <div class="impact btns">impact</div>
+                <div class="share-btns btns">share - download</div>
 
+
+            </div>
+
+        </section>
+
+        <section class="gallery-container">
+
+            <div class="gallery-menu">
+                <input type="text" placeholder="Search">
+
+            </div>
+
+            <div class="gallery-images">
 
             </div>
 

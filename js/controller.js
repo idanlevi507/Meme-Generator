@@ -29,6 +29,17 @@ function setCanvImg() {
     gCanvas.style = `background-image: url("meme-imgs/${currMeme.selectedImgId}.jpg");background-size: cover;`
 }
 
+function clearCanvas() {
+    // const meme = getgMeme()
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
+
+}
+
+function onClear() {
+    document.querySelector('[data-name="first-line"]').value = '';
+    clearCanvas();
+}
+
 function renderCanvas() {
     const htmlCanvas = `<canvas id="my-canvas" width="475px" height="450px"> </canvas>`;
     document.querySelector(".canvas-container").innerHTML = htmlCanvas;

@@ -33,9 +33,6 @@ body {
     border-radius: 5em;
     margin-top: 20px;
 }
-.nav-bar a:hover {
-    cursor: pointer;
-}
 
 .modal-content{
     /* display:flex; */
@@ -74,4 +71,9 @@ canvas{
     width:125px;
     height: 125px;
     margin:10px;
+    cursor: pointer;
+}
+
+.btns {
+    cursor:pointer;
 }

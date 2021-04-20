@@ -1,3 +1,11 @@
+@font-face {
+    font-family: euro-bold;
+    src: url('/fonts/eurofurence\ \ bold\ 700.ttf');
+}
+@font-face {
+    font-family: lato-reg;
+    src: url('/fonts/Lato-Regular.ttf');
+}
 
 body {
     background: rgb(175,241,237);
@@ -25,9 +33,12 @@ body {
     border-radius: 5em;
     margin-top: 20px;
 }
+.nav-bar a:hover {
+    cursor: pointer;
+}
 
 .modal-content{
-    display:flex;
+    /* display:flex; */
     display:none;
     justify-content:space-between;
     width:80%;
@@ -37,10 +48,6 @@ body {
 .canvas-options {
     display:flex;
     flex-direction:column;
-}
-
-.canvas-container {
-    
 }
 
 canvas{

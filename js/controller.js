@@ -22,30 +22,27 @@ function renderImages() {
 }
 
 function getCurrTxt(line) {
-const meme = getgMeme();
-    // let currLine = meme.lines.filter(line=> {
-    //     return (line.currLine)
-          
-    // })
+const meme = getCurrMeme();
     return meme.lines[line].txt
 }
 
 function onSwitchLines() {
-    const meme = getgMeme();
+    const meme = getCurrMeme();
     (gCurrLine===meme.lines.length-1)? gCurrLine = 0 : gCurrLine++ ;
     document.querySelector('[data-name="input-line"]').value =  getCurrTxt(gCurrLine)
 }
 
-function onChangeHeight(idx=0,sign) {
-    const meme = getgMeme();
-    meme.lines[idx].y += sign;
+function onChangeHeight(sign) {
+    const meme = getCurrMeme();
+    meme.lines[gCurrLine].y += sign;
     clearCanvas();
     drawText();
 }
 
-function onChangeTxtSize(idx=0,sign) {
-    const meme = getgMeme();
-    meme.lines[idx].size += sign;
+function onChangeTxtSize(sign) {
+    debugger
+    const meme = getCurrMeme();
+    meme.lines[gCurrLine].size += sign;
     clearCanvas();
     drawText();
 }
@@ -64,14 +61,18 @@ function setCanvImg() {
 }
 
 function clearCanvas() {
-    // const meme = getgMeme()
+    // const meme = getCurrMeme()
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height)
 
 }
 
 function onClear() {
-    document.querySelector('[data-name="first-line"]').value = '';
-    document.querySelector('[data-name="second-line"]').value = '';
+   let meme = getCurrMeme();
+    meme.lines.forEach(line=>{
+        line.txt = ''    
+    })
+    updateCurrMeme(meme);
+    document.querySelector('[data-name="input-line"]').value = "";
     clearCanvas();
 }
 
@@ -87,7 +88,7 @@ function openMemeEditor(id) {
     setSelectedImg(id);
     renderCanvas(id)  
     setCanvImg();
-    document.querySelector(".modal-content").style.display = "flex";
+    document.querySelector(".editor-container").style.display = "flex";
     drawText()
 }
 
@@ -97,6 +98,26 @@ function onImgClick(id) {
 }
 
 function onGallery() {
-    document.querySelector(".modal-content").style.display = "none";
+    document.querySelector(".editor-container").style.display = "none";
+    document.querySelector(".gallery-memes").style.display = 'none';
     document.querySelector(".gallery-container").style.display = 'block';
+
+}
+
+function onMemes() {
+    const savedMemes = getSevedMemes();
+    drawSavedMemes(savedMemes);
+    document.querySelector(".editor-container").style.display = "none";
+    document.querySelector(".gallery-container").style.display = 'none';
+    document.querySelector(".gallery-memes").style.display = 'block';
+
+}
+
+function onSaveMeme() {
+    let savedMemes = loadFromStorage('saved-memes');
+    if (!savedMemes) savedMemes =[] ;  
+    const meme = getCurrMeme();
+    savedMemes.push(meme);
+    saveMeme(savedMemes);
+    alert('Meme Saved');
 }

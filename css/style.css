@@ -17,8 +17,6 @@
 
 /* HELPER */
 
-
-
 body {
   background: radial-gradient(circle, #16a2a5 0%, #2cb77b 100%);
 }
@@ -62,7 +60,6 @@ body {
 }
 
 .editor-container {
-    /* background-color: #fff; */
   /* display:flex; */
   display: none;
   justify-content: space-between;
@@ -71,29 +68,29 @@ body {
 }
 
 .canvas-options {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding:25px 25px;
-    background-color: #383B42;
-    margin-left: 40px;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 25px;
+  background-color: #383b42;
+  margin-left: 40px;
 }
 
 .line-input {
-    background-color: #EBEEF3;
-    height: 30px;
-    color: #3D3D3D;
-    font-size:1.2rem;
-    font-family: poppin-medium;
-    border-radius: 25px;
-    padding: 10px 10px 10px 30px;
+  background-color: #ebeef3;
+  height: 30px;
+  color: #3d3d3d;
+  font-size: 1.2rem;
+  font-family: poppin-medium;
+  border-radius: 25px;
+  padding: 10px 10px 10px 30px;
 }
 
 .option-img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 canvas {
@@ -133,7 +130,7 @@ canvas {
   /* height: 20px; */
   color: #fefefe;
   border-radius: 25px;
-  padding: 10px 10px 10px 30px;
+  padding: 5px 10px 5px 30px;
   font-size: 1.375rem;
   font-family: poppin-light;
   margin: 15px;
@@ -142,37 +139,36 @@ canvas {
 .btns,
 button {
   cursor: pointer;
-  
 }
 
 .more-btn {
-  background-color:  #2cb77b;
+  background-color: #2cb77b;
   border-radius: 25px;
   width: 75px;
-  max-height: 35px ;
+  max-height: 35px;
   /* font-size: 1rem; */
-  font-family:  poppin-medium;
+  font-family: poppin-medium;
 }
 
 .impact {
-    display:flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-.arrow-btns{
-    width:45px ;
-    height: 39px;
-    font-size: x-large;
-    font-family: poppin-medium;
+.arrow-btns {
+  width: 45px;
+  height: 39px;
+  font-size: x-large;
+  font-family: poppin-medium;
 }
 
 .save-btn {
-    background-color:  #2cb77b;
-    border-radius: 25px;
-    width: 150px;
-    height: 40px;
-    font-size: 24px;
-    font-family: poppin-medium;
+  background-color: #2cb77b;
+  border-radius: 25px;
+  width: 150px;
+  height: 40px;
+  font-size: 24px;
+  font-family: poppin-medium;
 }
 
 .gallery-images {
@@ -183,10 +179,10 @@ button {
   height: 400px;
 }
 .gallery-itme2 {
-    display: flex;
-    flex-direction: row;
-    align-items:center
-  }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .gallery-images img {
   width: 125px;
   height: 125px;
@@ -194,17 +190,13 @@ button {
   cursor: pointer;
 }
 .saved-canvas-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .saved-canvas {
-    width:150px;  
-
-
+  width: 150px;
 }
-
-
 
 /* scroller css start ----------------------------------------
 /* width */
@@ -226,38 +218,64 @@ button {
 
 /* Handle on hover */
 .gallery-images::-webkit-scrollbar-thumb:hover {
+
 }
 
 /* scroller css END ----------------------------------------
 
 /*  */
 @media (max-width: 900px) {
-  .tags {
-    font-size: 0.8rem;
-    width: 136px;
-  }
- .more-btn {
-    width: 50px;
-    max-height: 35px ;
-    font-size: 0.8rem;
- }
- .nav-bar a {
+  .nav-bar a {
     font-size: 1rem;
- }
+  }
 
-  
+  .search {
+      width:220px;
+      padding: 5px 10px
+  }
+
+  .tags {
+    font-size: 1rem;
+    width: 220px;
+  }
+
+  .more-btn {
+    width: 50px;
+    max-height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .editor-container  {
+    width: 500px !important;
+    
+  }
 }
 @media (max-width: 690px) {
-  .tags {
+    .search {
+        width:320px;
+        padding: 10px 10px
+    }
+  
+    .tags {
     font-size: 1.2rem;
-    width: 272px;
-
+    width: 260px;
+  }
+  .more-btn {
+    width: 50px;
+    max-height: 35px;
+    padding: 5px 5px 5px 5px;
   }
   .gallery-menu {
     display: flex;
     flex-direction: column;
   }
-  .nav-bar a , .logo{
-    font-size: 0.8rem;
- }
+  .nav-bar a,
+  .logo {
+    font-size: 1.1rem;
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 400px) {
+
 }

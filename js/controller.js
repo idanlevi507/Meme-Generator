@@ -40,7 +40,7 @@ function onChangeHeight(sign) {
 }
 
 function onChangeTxtSize(sign) {
-    debugger
+   
     const meme = getCurrMeme();
     meme.lines[gCurrLine].size += sign;
     clearCanvas();

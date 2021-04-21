@@ -15,7 +15,7 @@ let gMeme = {
             y: 50,
         },
         {
-            txt: 'lflfkfskvnsklfs  fslkfs',
+            txt: 'Im too carnivore',
             size: 40,
             align: 'left',
             color: 'blue',
@@ -28,7 +28,6 @@ let gMeme = {
 
 function setTextinput(value, lineNum = 0) {
     clearCanvas();
-    // debugger
     gMeme.lines[lineNum].txt = value;
     drawText();
 }

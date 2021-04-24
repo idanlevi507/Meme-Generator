@@ -6,20 +6,20 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I never eat Falafel',
+            txt: '',
             size: 40,
             align: 'left',
             color: 'blue',
-            family: 'IMPACT',
+            family: 'poppin-medium',
             x: 50,
             y: 50,
         },
         {
-            txt: 'Im too carnivore',
+            txt: '',
             size: 40,
             align: 'left',
             color: 'blue',
-            family: 'IMPACT',
+            family: 'poppin-medium',
             x: 50,
             y: 350,
         }
@@ -27,8 +27,8 @@ let gMeme = {
 }
 
 function setTextinput(value, lineNum = 0) {
-    clearCanvas();
     gMeme.lines[lineNum].txt = value;
+    renderCanvas();
     drawText();
 }
 
@@ -68,23 +68,14 @@ function getSevedMemes() {
     return savedMemes
 }
 
-function drawText() {
-    gMeme.lines.forEach(line => {
-        gCtx.lineWidth = 3;
-        gCtx.strokeStyle = 'white';
-        gCtx.fillStyle = line.color;
-        gCtx.font = `${line.size}px ${line.family}`;
-        gCtx.textAlign = line.align;
-        gCtx.fillText(line.txt, line.x, line.y);
-    })
-}
+
 
 function drawSavedMemes(sevedMemes) {
     let elContainer = document.querySelector(".saved-canvas-container");
     elContainer.innerHTML = ''
     sevedMemes.forEach((meme, idx) => {
         gMeme = meme;
-        const htmlCanvas = `<canvas class="saved-canvas" id="my-saved-Canvas${idx}" width="475px" height="450px"> </canvas>`;
+        const htmlCanvas = `<canvas class="saved-canvas" id="my-saved-Canvas${idx}" width="475" height="450" onclick="onEditSavedMeme('${idx}')"> </canvas>`;
         if (elContainer.firstChild) {
             const newElement = document.createElement("div");
             newElement.innerHTML = htmlCanvas;

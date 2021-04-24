@@ -18,14 +18,13 @@
 body {
   margin: 0;
   background: radial-gradient(circle, #16a2a5 0%, #2cb77b 100%);
+  background: linear-gradient(#000, #151515);
 }
 
 .page-container {
   background-color: #22252c;
   display: flex;
   flex-direction: column;
-  width: 95vw;
-  min-height: 95vh;
   margin: auto;
 }
 
@@ -67,14 +66,18 @@ body {
 }
 
 .canvas-options {
-  display: flex;
-  /* flex-grow: 1; */
+  display: flex;  
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 25px 25px;
   background-color: #383b42;
   margin-left: 40px;
+}
+
+.canvas-options a{
+  text-decoration: none;
+  color: black
 }
 
 .line-input {
@@ -98,7 +101,7 @@ canvas {
   border: 1px solid black;
 }
 
-.gallery-mems,
+.gallery-memes,
 .gallery-container {
   background-color: #383b42;
   width: 80%;
@@ -134,7 +137,7 @@ canvas {
 }
 
 .btns,
-button {
+button, img {
   cursor: pointer;
 }
 
@@ -173,9 +176,9 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   overflow-y: scroll;
-  height: 400px;
+  height: 390px;
 }
-.gallery-itme2 {
+.gallery-tags {
   display: flex;
   align-items: center;
 }
@@ -221,7 +224,6 @@ button {
 /*  */
 @media (max-width: 970px) {
   .search {
-    width: 220px;
     padding: 5px 10px;
   }
 
@@ -278,6 +280,7 @@ button {
   .gallery-menu {
     display: flex;
     flex-direction: column;
+    padding-top: 20px;
   }
 
   .nav-bar a,
@@ -333,10 +336,22 @@ button {
 }
 
 @media (max-width: 476px) {
-  .gallery-images {
-    width: 95%;
+  .page-container{
+    width: 100%;
+    margin:0;
   }
 
+  .page-header{
+    border-radius: 0px;
+    margin:0;
+  }
+
+  .gallery-container {
+    /* background-color: #fff; */
+    width:auto;
+    margin:0;
+  }
+  
   .gallery-images img {
     width: 150px;
     height: 150px;
@@ -357,5 +372,14 @@ button {
     font-size: 0.9rem;
     width: 200px;
     padding: 7px 5px 7px 10px;
+  }
+
+  .canvas-container *{
+    width: 300px;
+    height: 300px;
+  }
+
+  .canvas-options {
+    width:100%
   }
 }

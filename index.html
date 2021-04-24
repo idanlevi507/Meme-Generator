@@ -31,7 +31,7 @@
 
             <div class="canvas-options">
 
-                <input class="line-input" data-name="input-line" value="I never eat Falafel"
+                <input class="line-input" data-name="input-line" value=""placeholder="Enter Text Here!"
                     oninput="onInputText(value)"></input>
                 <div class="clear-btn btns">
                     <button onclick="onSwitchLines()"><img class="option-img"
@@ -48,6 +48,7 @@
                 </div>
                 <div class="share-btns btns">
                     <button class="save-btn btns" onclick="onSaveMeme()">Save</button>
+                    <button class="save-btn btns"><a href="#" onclick="onDownloadMeme(this)">Download</a></button>
                 </div>
 
             </div>
@@ -59,7 +60,7 @@
             <div class="gallery-menu">
 
                 <input class="search text-input" type="text" placeholder="Search">
-                <div class="gallery-itme2">
+                <div class="gallery-tags">
                     <div class="tags">Funny Animal Men Women</div>
                     <button class="more-btn btns">More</button>
                 </div>

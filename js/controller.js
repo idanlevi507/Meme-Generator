@@ -2,7 +2,7 @@
 
 let gCanvas;
 let gCtx;
-let gCurrLine= 0;
+let gCurrLine = 0;
 
 
 
@@ -11,8 +11,28 @@ function init() {
     renderImages();
 }
 
+function onEditSavedMeme(idx) {
+    const savedMemes = getSevedMemes()
+    const meme = savedMemes[idx];
+    gMeme = meme
+    console.log(meme);
+    openMemeEditor(meme.selectedImgId)
 
-function renderImages() { 
+}
+
+function drawText() {
+    gMeme.lines.forEach(line => {
+        gCtx.lineWidth = 3;
+        gCtx.strokeStyle = 'white';
+        gCtx.fillStyle = line.color;
+        gCtx.font = `${line.size}px ${line.family}`;
+        gCtx.textAlign = line.align;
+        gCtx.fillText(line.txt, line.x, line.y);
+    })
+}
+
+
+function renderImages() {
     let imgs = getgImgs();
     let htmlImgs = imgs.map(img => {
         return `<img src="${img.url}" onclick="onImgClick(${img.id})">`
@@ -22,33 +42,33 @@ function renderImages() {
 }
 
 function getCurrTxt(line) {
-const meme = getCurrMeme();
+    const meme = getCurrMeme();
     return meme.lines[line].txt
 }
 
 function onSwitchLines() {
     const meme = getCurrMeme();
-    (gCurrLine===meme.lines.length-1)? gCurrLine = 0 : gCurrLine++ ;
-    document.querySelector('[data-name="input-line"]').value =  getCurrTxt(gCurrLine)
+    (gCurrLine === meme.lines.length - 1) ? gCurrLine = 0 : gCurrLine++;
+    document.querySelector('[data-name="input-line"]').value = getCurrTxt(gCurrLine)
 }
 
 function onChangeHeight(sign) {
     const meme = getCurrMeme();
     meme.lines[gCurrLine].y += sign;
-    clearCanvas();
+    renderCanvas();
     drawText();
 }
 
 function onChangeTxtSize(sign) {
-   
+
     const meme = getCurrMeme();
     meme.lines[gCurrLine].size += sign;
-    clearCanvas();
+    renderCanvas();
     drawText();
 }
 
-function onInputText(value) {   
-    setTextinput(value,gCurrLine)
+function onInputText(value) {
+    setTextinput(value, gCurrLine)
 }
 
 function getCurrLine() {
@@ -57,7 +77,9 @@ function getCurrLine() {
 
 function setCanvImg() {
     const currMeme = getCurrMeme();
-    gCanvas.style = `background-image: url("meme-imgs/${currMeme.selectedImgId}.jpg");background-size: cover;`
+    let img = new Image();
+    img.src = `meme-imgs/${currMeme.selectedImgId}.jpg`;
+    img.onload = gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
 }
 
 function clearCanvas() {
@@ -67,13 +89,13 @@ function clearCanvas() {
 }
 
 function onClear() {
-   let meme = getCurrMeme();
-    meme.lines.forEach(line=>{
-        line.txt = ''    
+    let meme = getCurrMeme();
+    meme.lines.forEach(line => {
+        line.txt = ''
     })
     updateCurrMeme(meme);
     document.querySelector('[data-name="input-line"]').value = "";
-    clearCanvas();
+    renderCanvas();
 }
 
 function renderCanvas() {
@@ -81,12 +103,12 @@ function renderCanvas() {
     document.querySelector(".canvas-container").innerHTML = htmlCanvas;
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext("2d");
-
+    setCanvImg();
 }
 
 function openMemeEditor(id) {
     setSelectedImg(id);
-    renderCanvas(id)  
+    renderCanvas(id)
     setCanvImg();
     document.querySelector(".editor-container").style.display = "flex";
     drawText()
@@ -115,9 +137,17 @@ function onMemes() {
 
 function onSaveMeme() {
     let savedMemes = loadFromStorage('saved-memes');
-    if (!savedMemes) savedMemes =[] ;  
+    if (!savedMemes) savedMemes = [];
     const meme = getCurrMeme();
     savedMemes.push(meme);
     saveMeme(savedMemes);
     alert('Meme Saved');
 }
+
+function onDownloadMeme(elLink) {
+    console.log('??');
+    const imgContent = gCanvas.toDataURL('image/jpeg')
+    elLink.href = imgContent
+    elLink.download = 'myMeme';
+}
+
